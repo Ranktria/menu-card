@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hungry Highway - Evening Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --accent: #f97316;
+      --accent-soft: #fed7aa;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937, #020617 55%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu-wrapper {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.98));
+      border-radius: 20px;
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow:
+        0 20px 45px rgba(0,0,0,0.65),
+        0 0 0 1px rgba(15,23,42,0.8);
+      overflow: hidden;
+    }
+
+    header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      background: radial-gradient(circle at top left, rgba(248,250,252,0.05), transparent 55%);
+    }
+
+    .brand-main {
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.35em;
+      margin-top: 2px;
+    }
+
+    .since-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,250,252,0.18);
+      color: var(--accent-soft);
+      background: rgba(15,23,42,0.8);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section {
+      padding: 16px 18px 14px;
+      border-right: 1px solid rgba(31,41,55,0.9);
+      border-bottom: 1px solid rgba(31,41,55,0.9);
+      background:
+        linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.94)),
+        radial-gradient(circle at top right, rgba(248,250,252,0.03), transparent 55%);
+    }
+
+    .section:nth-child(2n) {
+      border-right: none;
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        border-right: none;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent-soft);
+    }
+
+    .section-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      color: var(--muted);
+    }
+
+    .items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .item-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .item-name {
+      max-width: 72%;
+    }
+
+    .item-name span {
+      font-weight: 500;
+    }
+
+    .item-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .item-price {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-size: 13px;
+      color: var(--accent-soft);
+    }
+
+    .pill-note {
+      display: inline-block;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 1px 8px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    footer {
+      padding: 10px 18px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      background: #020617;
+      border-top: 1px solid rgba(15,23,42,0.9);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <main class="menu-wrapper">
+    <header>
+      <div>
+        <div class="brand-main">HUNGRY HIGHWAY</div>
+        <div class="brand-sub">BURGERS • MOMOS • PIZZA • ROLLS</div>
+      </div>
+      <div class="since-pill">SINCE 2025</div>
+    </header>
+
+    <section class="grid">
+      <!-- MOMOS -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">MOMOS</div>
+            <div class="section-tag">5 PC / 10 PC</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Veg Steam Momo</span></div>
+            <div class="item-price">₹30 / ₹50</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Veg Fried Momo</span></div>
+            <div class="item-price">₹50 / ₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Steam Momo</span></div>
+            <div class="item-price">₹50 / ₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Fried Momo</span></div>
+            <div class="item-price">₹60 / ₹80</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Afghani Veg Momo</span></div>
+            <div class="item-price">₹70 / ₹110</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Afghani Paneer Momo</span></div>
+            <div class="item-price">₹80 / ₹120</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Malai Momo Veg</span></div>
+            <div class="item-price">₹80 / ₹120</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Malai Momo Paneer</span></div>
+            <div class="item-price">₹90 / ₹150</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kurkure Momo Veg</span></div>
+            <div class="item-price">₹70 / ₹110</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kurkure Momo Paneer</span></div>
+            <div class="item-price">₹80 / ₹120</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Momo Tass</span></div>
+            <div class="item-price">₹80 / ₹130</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Tandoori Momo Gravy</span></div>
+            <div class="item-price">₹100 / ₹160</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BURGERS & FRIES -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">BURGERS & FRIES</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Burger</span></div>
+            <div class="item-price">₹40</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Sweet Corn Burger</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Makhani Burger</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cheese Burger</span></div>
+            <div class="item-price">₹55</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">FRIES</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>French Fries</span></div>
+            <div class="item-price">₹60</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Masala French Fries</span></div>
+            <div class="item-price">₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cheese French Fries</span></div>
+            <div class="item-price">₹80</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ROLLS -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">ROLLS</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Veg Roll</span></div>
+            <div class="item-price">₹45</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Egg Roll</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Double Egg Roll</span></div>
+            <div class="item-price">₹60</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Paneer Roll</span></div>
+            <div class="item-price">₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Chicken Roll</span></div>
+            <div class="item-price">₹80</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Chicken Egg Roll</span></div>
+            <div class="item-price">₹100</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CHOWMEIN & EGG DISH -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">CHOWMEIN & EGG DISH</div>
+            <div class="section-tag">HALF / FULL</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Veg Chowmein</span></div>
+            <div class="item-price">₹40 / ₹60</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Chowmein</span></div>
+            <div class="item-price">₹45 / ₹65</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Egg Chowmein</span></div>
+            <div class="item-price">₹50 / ₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Chilli</span></div>
+            <div class="item-price">₹70 / ₹160</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Chicken Chilli</span></div>
+            <div class="item-price">₹80 / ₹170</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">EGG</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Boiled Egg</span></div>
+            <div class="item-price">₹11</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Egg Bhurji</span></div>
+            <div class="item-price">₹40</div>
+          </li>
+          <!-- Omelette removed as requested -->
+        </ul>
+      </div>
+
+      <!-- SANDWICHES & BIRYANI -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">SANDWICHES & BIRYANI</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Veg Grilled Sandwich</span></div>
+            <div class="item-price">₹30</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cheese Sandwich</span></div>
+            <div class="item-price">₹40</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Chocolate Sandwich</span></div>
+            <div class="item-price">₹80</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Cheese Sandwich</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">BIRYANI</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kolkata Chicken Biryani</span></div>
+            <div class="item-price">₹100 / ₹160</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PIZZAS -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">PIZZAS</div>
+            <div class="section-tag">MEDIUM SIZE</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Classic Corn Pizza</span></div>
+            <div class="item-price">₹105</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Capsicum Onion Pizza</span></div>
+            <div class="item-price">₹109</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Margherita Pizza</span></div>
+            <div class="item-price">₹109</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Makhani Pizza</span></div>
+            <div class="item-price">₹150</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Maharaja Special Pizza</span></div>
+            <div class="item-price">₹170</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Extra Cheese Pizza</span></div>
+            <div class="item-price">₹170</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">KULHAD PIZZAS</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kulhad Pizza (Corn & Capsicum)</span></div>
+            <div class="item-price">₹79</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kulhad Pizza (Corn, Capsicum & Paneer)</span></div>
+            <div class="item-price">₹90</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Special Kulhad Pizza with Extra Cheese</span></div>
+            <div class="item-price">₹120</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>Cash & UPI Payments Accepted</div>
+      <div class="highlight">No Service Charge • Packed with Love</div>
+    </footer>
+  </main>
+</body>
+</html>
