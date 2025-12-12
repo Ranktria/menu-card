@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #020617;
-      --accent: #f97316;
-      --accent-soft: #fed7aa;
-      --text: #f9fafb;
-      --muted: #9ca3af;
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --bg-light: #fef3c7;
+      --bg-cream: #fffbeb;
+      --text-dark: #78350f;
+      --text-light: #92400e;
+      --accent-gold: #d97706;
+      --accent-red: #dc2626;
     }
 
     * {
@@ -21,60 +23,102 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #020617 55%);
-      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #f97316 100%);
+      color: var(--text-dark);
       min-height: 100vh;
-      padding: 16px;
+      padding: 12px;
       display: flex;
       justify-content: center;
+    }
+
+    /* Food emoji background pattern (decorative) */
+    body::before {
+      content: "🍔 🍕 🍜 🥡 🌯 🍟 🧆 🥙";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 60px;
+      opacity: 0.08;
+      pointer-events: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      z-index: -1;
     }
 
     .menu-wrapper {
       width: 100%;
       max-width: 900px;
-      background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.98));
-      border-radius: 20px;
-      border: 1px solid rgba(148,163,184,0.4);
+      background: linear-gradient(to bottom, #fffbeb 0%, #fef3c7 100%);
+      border-radius: 24px;
+      border: 3px solid var(--primary);
       box-shadow:
-        0 20px 45px rgba(0,0,0,0.65),
-        0 0 0 1px rgba(15,23,42,0.8);
+        0 25px 50px rgba(217, 119, 6, 0.35),
+        0 8px 16px rgba(217, 119, 6, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       overflow: hidden;
     }
 
     header {
-      padding: 18px 20px 14px;
-      border-bottom: 1px solid rgba(148,163,184,0.35);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      background: radial-gradient(circle at top left, rgba(248,250,252,0.05), transparent 55%);
+      padding: 24px 20px 18px;
+      border-bottom: 3px solid var(--primary);
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: "🍽️";
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+    }
+
+    header::after {
+      content: "🍽️";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
     }
 
     .brand-main {
-      font-size: 22px;
-      letter-spacing: 0.18em;
+      font-size: 28px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .brand-sub {
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
-      color: var(--muted);
-      letter-spacing: 0.35em;
-      margin-top: 2px;
+      letter-spacing: 0.2em;
+      margin-top: 4px;
+      opacity: 0.95;
+      font-weight: 600;
     }
 
     .since-pill {
+      display: inline-block;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 3px 10px;
+      letter-spacing: 0.15em;
+      padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(248,250,252,0.18);
-      color: var(--accent-soft);
-      background: rgba(15,23,42,0.8);
+      border: 2px solid white;
+      color: var(--primary);
+      background: white;
+      font-weight: 700;
+      margin-top: 10px;
     }
 
     .grid {
@@ -90,12 +134,10 @@
     }
 
     .section {
-      padding: 16px 18px 14px;
-      border-right: 1px solid rgba(31,41,55,0.9);
-      border-bottom: 1px solid rgba(31,41,55,0.9);
-      background:
-        linear-gradient(135deg, rgba(15,23,42,0.9), rgba(15,23,42,0.94)),
-        radial-gradient(circle at top right, rgba(248,250,252,0.03), transparent 55%);
+      padding: 18px;
+      border-right: 2px solid rgba(217, 119, 6, 0.3);
+      border-bottom: 2px solid rgba(217, 119, 6, 0.3);
+      background: linear-gradient(135deg, #fffbeb 0%, rgba(249, 115, 22, 0.05) 100%);
     }
 
     .section:nth-child(2n) {
@@ -112,29 +154,37 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
     }
 
     .section-title {
-      font-size: 14px;
+      font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--accent-soft);
+      letter-spacing: 0.18em;
+      color: var(--primary-dark);
+      font-weight: 800;
     }
 
     .section-tag {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.20em;
-      color: var(--muted);
+      letter-spacing: 0.15em;
+      color: var(--text-light);
+      background: var(--primary);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
     }
 
     .items {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-top: 2px;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     .item-line {
@@ -142,7 +192,17 @@
       justify-content: space-between;
       align-items: baseline;
       font-size: 13px;
-      color: var(--text);
+      color: var(--text-dark);
+      padding: 6px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    .item-line:hover {
+      background: rgba(249, 115, 22, 0.15);
+      transform: translateX(2px);
+      box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
     }
 
     .item-name {
@@ -150,60 +210,73 @@
     }
 
     .item-name span {
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--primary-dark);
     }
 
     .item-note {
       font-size: 11px;
-      color: var(--muted);
-      margin-top: 1px;
+      color: var(--text-light);
+      margin-top: 2px;
     }
 
     .item-price {
       text-align: right;
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
-      font-size: 13px;
-      color: var(--accent-soft);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-red);
     }
 
     .pill-note {
       display: inline-block;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      padding: 1px 8px;
+      border-radius: 8px;
+      border: 2px solid var(--primary);
+      padding: 4px 12px;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 4px;
+      color: white;
+      background: var(--primary);
+      margin-top: 8px;
+      font-weight: 700;
     }
 
     footer {
-      padding: 10px 18px 14px;
+      padding: 14px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 11px;
-      color: var(--muted);
-      background: #020617;
-      border-top: 1px solid rgba(15,23,42,0.9);
+      color: white;
+      background: var(--primary);
+      border-top: 3px solid var(--primary-dark);
+      font-weight: 600;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .highlight {
-      color: var(--accent);
-      font-weight: 600;
+      color: #fef3c7;
+      font-weight: 800;
     }
+
+    /* Food emoji icons beside section titles */
+    .section:nth-child(1) .section-title::before { content: "🥟 "; }
+    .section:nth-child(2) .section-title::before { content: "🍔 "; }
+    .section:nth-child(3) .section-title::before { content: "🌯 "; }
+    .section:nth-child(4) .section-title::before { content: "🍜 "; }
+    .section:nth-child(5) .section-title::before { content: "🥪 "; }
+    .section:nth-child(6) .section-title::before { content: "🍕 "; }
   </style>
 </head>
 <body>
   <main class="menu-wrapper">
     <header>
-      <div>
-        <div class="brand-main">HUNGRY HIGHWAY</div>
-        <div class="brand-sub">BURGERS • MOMOS • PIZZA • ROLLS</div>
-      </div>
-      <div class="since-pill">SINCE 2025</div>
+      <div class="brand-main">HUNGRY HIGHWAY</div>
+      <div class="brand-sub">MOMOS • BURGERS • PIZZA • ROLLS</div>
+      <div class="since-pill">FRESH & TASTY</div>
     </header>
 
     <section class="grid">
@@ -315,173 +388,4 @@
         <div class="section-header">
           <div>
             <div class="section-title">ROLLS</div>
-          </div>
-        </div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Veg Roll</span></div>
-            <div class="item-price">₹45</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Egg Roll</span></div>
-            <div class="item-price">₹50</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Double Egg Roll</span></div>
-            <div class="item-price">₹60</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Paneer Roll</span></div>
-            <div class="item-price">₹70</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Chicken Roll</span></div>
-            <div class="item-price">₹80</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kathi Chicken Egg Roll</span></div>
-            <div class="item-price">₹100</div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- CHOWMEIN & EGG DISH -->
-      <div class="section">
-        <div class="section-header">
-          <div>
-            <div class="section-title">CHOWMEIN & EGG DISH</div>
-            <div class="section-tag">HALF / FULL</div>
-          </div>
-        </div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Veg Chowmein</span></div>
-            <div class="item-price">₹40 / ₹60</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Chowmein</span></div>
-            <div class="item-price">₹45 / ₹65</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Egg Chowmein</span></div>
-            <div class="item-price">₹50 / ₹70</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Chilli</span></div>
-            <div class="item-price">₹70 / ₹160</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Chicken Chilli</span></div>
-            <div class="item-price">₹80 / ₹170</div>
-          </li>
-        </ul>
-
-        <div class="pill-note" style="margin-top:10px;">EGG</div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Boiled Egg</span></div>
-            <div class="item-price">₹11</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Egg Bhurji</span></div>
-            <div class="item-price">₹40</div>
-          </li>
-          <!-- Omelette removed as requested -->
-        </ul>
-      </div>
-
-      <!-- SANDWICHES & BIRYANI -->
-      <div class="section">
-        <div class="section-header">
-          <div>
-            <div class="section-title">SANDWICHES & BIRYANI</div>
-          </div>
-        </div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Veg Grilled Sandwich</span></div>
-            <div class="item-price">₹30</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Cheese Sandwich</span></div>
-            <div class="item-price">₹40</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Chocolate Sandwich</span></div>
-            <div class="item-price">₹80</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Cheese Sandwich</span></div>
-            <div class="item-price">₹50</div>
-          </li>
-        </ul>
-
-        <div class="pill-note" style="margin-top:10px;">BIRYANI</div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Kolkata Chicken Biryani</span></div>
-            <div class="item-price">₹100 / ₹160</div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- PIZZAS -->
-      <div class="section">
-        <div class="section-header">
-          <div>
-            <div class="section-title">PIZZAS</div>
-            <div class="section-tag">MEDIUM SIZE</div>
-          </div>
-        </div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Classic Corn Pizza</span></div>
-            <div class="item-price">₹105</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Capsicum Onion Pizza</span></div>
-            <div class="item-price">₹109</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Margherita Pizza</span></div>
-            <div class="item-price">₹109</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Makhani Pizza</span></div>
-            <div class="item-price">₹150</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Maharaja Special Pizza</span></div>
-            <div class="item-price">₹170</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Extra Cheese Pizza</span></div>
-            <div class="item-price">₹170</div>
-          </li>
-        </ul>
-
-        <div class="pill-note" style="margin-top:10px;">KULHAD PIZZAS</div>
-        <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Kulhad Pizza (Corn & Capsicum)</span></div>
-            <div class="item-price">₹79</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kulhad Pizza (Corn, Capsicum & Paneer)</span></div>
-            <div class="item-price">₹90</div>
-          </li>
-          <li class="item-line">
-            <div class="item-name"><span>Special Kulhad Pizza with Extra Cheese</span></div>
-            <div class="item-price">₹120</div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
-      <div>Cash & UPI Payments Accepted</div>
-      <div class="highlight">No Service Charge • Packed with Love</div>
-    </footer>
-  </main>
-</body>
-</html>
+          </div
