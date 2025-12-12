@@ -32,7 +32,6 @@
       justify-content: center;
     }
 
-    /* Food emoji background pattern (decorative) */
     body::before {
       content: "🍔 🍕 🍜 🥡 🌯 🍟 🧆 🥙";
       position: fixed;
@@ -171,9 +170,8 @@
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--text-light);
-      background: var(--primary);
       color: white;
+      background: var(--primary);
       padding: 2px 8px;
       border-radius: 12px;
       font-weight: 600;
@@ -262,7 +260,6 @@
       font-weight: 800;
     }
 
-    /* Food emoji icons beside section titles */
     .section:nth-child(1) .section-title::before { content: "🥟 "; }
     .section:nth-child(2) .section-title::before { content: "🍔 "; }
     .section:nth-child(3) .section-title::before { content: "🌯 "; }
@@ -388,4 +385,174 @@
         <div class="section-header">
           <div>
             <div class="section-title">ROLLS</div>
-          </div
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Veg Roll</span></div>
+            <div class="item-price">₹45</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Egg Roll</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+          <li class
+                      <li class="item-line">
+            <div class="item-name"><span>Kathi Double Egg Roll</span></div>
+            <div class="item-price">₹60</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Paneer Roll</span></div>
+            <div class="item-price">₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Chicken Roll</span></div>
+            <div class="item-price">₹80</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kathi Chicken Egg Roll</span></div>
+            <div class="item-price">₹100</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CHOWMEIN & EGG DISH -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">CHOWMEIN & EGG DISH</div>
+            <div class="section-tag">HALF / FULL</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Veg Chowmein</span></div>
+            <div class="item-price">₹40 / ₹60</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Chowmein</span></div>
+            <div class="item-price">₹45 / ₹65</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Egg Chowmein</span></div>
+            <div class="item-price">₹50 / ₹70</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Chilli</span></div>
+            <div class="item-price">₹70 / ₹160</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Chicken Chilli</span></div>
+            <div class="item-price">₹80 / ₹170</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">EGG</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Boiled Egg</span></div>
+            <div class="item-price">₹11</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Egg Bhurji</span></div>
+            <div class="item-price">₹40</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SANDWICHES & BIRYANI -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">SANDWICHES & BIRYANI</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Veg Grilled Sandwich</span></div>
+            <div class="item-price">₹30</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cheese Sandwich</span></div>
+            <div class="item-price">₹40</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Chocolate Sandwich</span></div>
+            <div class="item-price">₹80</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Cheese Sandwich</span></div>
+            <div class="item-price">₹50</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">BIRYANI</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kolkata Chicken Biryani</span></div>
+            <div class="item-price">₹100 / ₹160</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PIZZAS -->
+      <div class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-title">PIZZAS</div>
+            <div class="section-tag">MEDIUM SIZE</div>
+          </div>
+        </div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Classic Corn Pizza</span></div>
+            <div class="item-price">₹105</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Capsicum Onion Pizza</span></div>
+            <div class="item-price">₹109</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Margherita Pizza</span></div>
+            <div class="item-price">₹109</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Makhani Pizza</span></div>
+            <div class="item-price">₹150</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Maharaja Special Pizza</span></div>
+            <div class="item-price">₹170</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Extra Cheese Pizza</span></div>
+            <div class="item-price">₹170</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">KULHAD PIZZAS</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Kulhad Pizza (Corn & Capsicum)</span></div>
+            <div class="item-price">₹79</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kulhad Pizza (Corn, Capsicum & Paneer)</span></div>
+            <div class="item-price">₹90</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Special Kulhad Pizza with Extra Cheese</span></div>
+            <div class="item-price">₹120</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>Cash & UPI Payments Accepted</div>
+      <div class="highlight">No Service Charge • Packed with Love</div>
+    </footer>
+  </main>
+</body>
+</html>
+
