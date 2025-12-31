@@ -260,6 +260,26 @@
       font-weight: 800;
     }
 
+    /* Top seller badge */
+    .top-seller-badge {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 6px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      color: white;
+      font-weight: 800;
+    }
+
+    .item-line.top-seller {
+      border: 2px solid var(--accent-gold);
+      background: rgba(250, 204, 21, 0.2);
+      box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.2);
+    }
+
     .section:nth-child(1) .section-title::before { content: "🥟 "; }
     .section:nth-child(2) .section-title::before { content: "🍔 "; }
     .section:nth-child(3) .section-title::before { content: "🌯 "; }
@@ -286,8 +306,11 @@
           </div>
         </div>
         <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Veg Steam Momo</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Veg Steam Momo</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹30 / ₹50</div>
           </li>
           <li class="item-line">
@@ -298,8 +321,11 @@
             <div class="item-name"><span>Paneer Steam Momo</span></div>
             <div class="item-price">₹50 / ₹70</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Fried Momo</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Paneer Fried Momo</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹60 / ₹80</div>
           </li>
           <li class="item-line">
@@ -322,8 +348,11 @@
             <div class="item-name"><span>Kurkure Momo Veg</span></div>
             <div class="item-price">₹70 / ₹110</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Kurkure Momo Paneer</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Kurkure Momo Paneer</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹80 / ₹120</div>
           </li>
           <li class="item-line">
@@ -345,8 +374,11 @@
           </div>
         </div>
         <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Burger</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Paneer Burger</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹40</div>
           </li>
           <li class="item-line">
@@ -357,16 +389,22 @@
             <div class="item-name"><span>Makhani Burger</span></div>
             <div class="item-price">₹50</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Cheese Burger</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Cheese Burger</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹55</div>
           </li>
         </ul>
 
         <div class="pill-note" style="margin-top:10px;">FRIES</div>
         <ul class="items">
-          <li class="item-line">
-            <div class="item-name"><span>French Fries</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>French Fries</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹60</div>
           </li>
           <li class="item-line">
@@ -396,7 +434,7 @@
             <div class="item-name"><span>Kathi Egg Roll</span></div>
             <div class="item-price">₹50</div>
           </li>
-            <li class="item-line">
+          <li class="item-line">
             <div class="item-name"><span>Kathi Double Egg Roll</span></div>
             <div class="item-price">₹60</div>
           </li>
@@ -436,13 +474,56 @@
             <div class="item-name"><span>Egg Chowmein</span></div>
             <div class="item-price">₹50 / ₹70</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Paneer Chilli</span></div>
-            <div class="item-price">₹70 / ₹160</div>
+
+          <!-- UPDATED CHILLI ITEMS (ALL TOP SELLERS) -->
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Baby Corn Chilli</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹110 / ₹200</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Chicken Chilli</span></div>
-            <div class="item-price">₹80 / ₹170</div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Mushroom Chilli</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹100 / ₹200</div>
+          </li>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Chicken Chilli</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹90 / ₹160</div>
+          </li>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Chilli Paneer</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹90 / ₹160</div>
+          </li>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Chilli Potato</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹100 / ₹180</div>
+          </li>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Honey Chilli Potato</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹120 / ₹200</div>
+          </li>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Chicken Lollipops (6 pcs)</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
+            <div class="item-price">₹240</div>
           </li>
         </ul>
 
@@ -511,16 +592,22 @@
             <div class="item-name"><span>Capsicum Onion Pizza</span></div>
             <div class="item-price">₹109</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Margherita Pizza</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Margherita Pizza</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹109</div>
           </li>
           <li class="item-line">
             <div class="item-name"><span>Paneer Makhani Pizza</span></div>
             <div class="item-price">₹150</div>
           </li>
-          <li class="item-line">
-            <div class="item-name"><span>Maharaja Special Pizza</span></div>
+          <li class="item-line top-seller">
+            <div class="item-name">
+              <span>Maharaja Special Pizza</span>
+              <span class="top-seller-badge">Top Seller</span>
+            </div>
             <div class="item-price">₹170</div>
           </li>
           <li class="item-line">
@@ -554,4 +641,3 @@
   </main>
 </body>
 </html>
-
