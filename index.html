@@ -260,7 +260,7 @@
       font-weight: 800;
     }
 
-    /* Top seller badge */
+    /* Top seller badge – darker for better contrast */
     .top-seller-badge {
       display: inline-block;
       margin-left: 6px;
@@ -269,17 +269,17 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       border-radius: 999px;
-      background: #111827;      /* dark background */
-      color: #facc15;           /* bright yellow text */
+      background: #111827;
+      color: #facc15;
       font-weight: 800;
       border: 1px solid #fbbf24;
-   }
+    }
 
     .item-line.top-seller {
-      border: 2px solid #b45309;            /* darker brown */
-      background: rgba(250, 204, 21, 0.18); /* soft yellow glow */
+      border: 2px solid #b45309;
+      background: rgba(250, 204, 21, 0.18);
       box-shadow: 0 0 0 1px rgba(146, 64, 14, 0.4);
-   }
+    }
 
     .section:nth-child(1) .section-title::before { content: "🥟 "; }
     .section:nth-child(2) .section-title::before { content: "🍔 "; }
@@ -303,65 +303,92 @@
         <div class="section-header">
           <div>
             <div class="section-title">MOMOS</div>
-            <div class="section-tag">5 PC / 10 PC</div>
+            <div class="section-tag">HALF / FULL</div>
           </div>
         </div>
         <ul class="items">
+          <!-- Basic momos -->
           <li class="item-line top-seller">
             <div class="item-name">
-              <span>Veg Steam Momo</span>
+              <span>Veg Steam Momos</span>
               <span class="top-seller-badge">Top Seller</span>
             </div>
             <div class="item-price">₹30 / ₹50</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Veg Fried Momo</span></div>
+            <div class="item-name"><span>Veg Fried Momos</span></div>
             <div class="item-price">₹50 / ₹70</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Paneer Steam Momo</span></div>
+            <div class="item-name"><span>Paneer Steam Momos</span></div>
             <div class="item-price">₹50 / ₹70</div>
           </li>
           <li class="item-line top-seller">
             <div class="item-name">
-              <span>Paneer Fried Momo</span>
+              <span>Paneer Fried Momos</span>
               <span class="top-seller-badge">Top Seller</span>
             </div>
             <div class="item-price">₹60 / ₹80</div>
           </li>
+
+          <!-- Special sauces (older ones kept) -->
           <li class="item-line">
-            <div class="item-name"><span>Afghani Veg Momo</span></div>
+            <div class="item-name"><span>Afghani Veg Momos</span></div>
             <div class="item-price">₹70 / ₹110</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Afghani Paneer Momo</span></div>
+            <div class="item-name"><span>Afghani Paneer Momos</span></div>
             <div class="item-price">₹80 / ₹120</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Malai Momo Veg</span></div>
+            <div class="item-name"><span>Malai Veg Momos</span></div>
             <div class="item-price">₹80 / ₹120</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Malai Momo Paneer</span></div>
+            <div class="item-name"><span>Malai Paneer Momos</span></div>
             <div class="item-price">₹90 / ₹150</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Kurkure Momo Veg</span></div>
+            <div class="item-name"><span>Kurkure Veg Momos</span></div>
             <div class="item-price">₹70 / ₹110</div>
           </li>
           <li class="item-line top-seller">
             <div class="item-name">
-              <span>Kurkure Momo Paneer</span>
+              <span>Kurkure Paneer Momos</span>
               <span class="top-seller-badge">Top Seller</span>
             </div>
-            <div class="item-price">₹80 / ₹120</div>
+            <div class="item-price">₹90 / ₹140</div>
           </li>
+
+          <!-- New standardized variants -->
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Momos</span></div>
+            <div class="item-price">₹50 / ₹90</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Afghani Momos</span></div>
+            <div class="item-price">₹90 / ₹140</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Kurkure Momos</span></div>
+            <div class="item-price">₹70 / ₹110</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cocktail Paneer Momos</span></div>
+            <div class="item-price">₹90 / ₹140</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Cocktail Veg Momos</span></div>
+            <div class="item-price">₹70 / ₹110</div>
+          </li>
+
+          <!-- Gravies -->
           <li class="item-line">
             <div class="item-name"><span>Momo Tass</span></div>
             <div class="item-price">₹80 / ₹130</div>
           </li>
           <li class="item-line">
-            <div class="item-name"><span>Tandoori Momo Gravy</span></div>
+            <div class="item-name"><span>Tandoori Momos Gravy</span></div>
             <div class="item-price">₹100 / ₹160</div>
           </li>
         </ul>
@@ -475,8 +502,16 @@
             <div class="item-name"><span>Egg Chowmein</span></div>
             <div class="item-price">₹50 / ₹70</div>
           </li>
+          <li class="item-line">
+            <div class="item-name"><span>Hakka Noodles</span></div>
+            <div class="item-price">₹99</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Singapori Noodles</span></div>
+            <div class="item-price">₹120</div>
+          </li>
 
-          <!-- UPDATED CHILLI ITEMS (ALL TOP SELLERS) -->
+          <!-- Chinese chilli items (all top sellers) -->
           <li class="item-line top-seller">
             <div class="item-name">
               <span>Baby Corn Chilli</span>
@@ -630,6 +665,18 @@
           <li class="item-line">
             <div class="item-name"><span>Special Kulhad Pizza with Extra Cheese</span></div>
             <div class="item-price">₹120</div>
+          </li>
+        </ul>
+
+        <div class="pill-note" style="margin-top:10px;">MOMOS PIZZAS</div>
+        <ul class="items">
+          <li class="item-line">
+            <div class="item-name"><span>Paneer Momos Pizza</span></div>
+            <div class="item-price">₹150 / ₹250</div>
+          </li>
+          <li class="item-line">
+            <div class="item-name"><span>Veg Momos Pizza</span></div>
+            <div class="item-price">₹100 / ₹200</div>
           </li>
         </ul>
       </div>
