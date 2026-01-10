@@ -10,10 +10,10 @@
       --primary-dark: #ea580c;
       --bg-light: #fef3c7;
       --bg-cream: #fffbeb;
-      --text-dark: #78350f;
-      --text-light: #92400e;
+      --text-dark: #4b2805;
+      --text-light: #6b3b09;
       --accent-gold: #d97706;
-      --accent-red: #dc2626;
+      --accent-red: #b91c1c;
     }
 
     * {
@@ -287,6 +287,126 @@
     .section:nth-child(4) .section-title::before { content: "🍜 "; }
     .section:nth-child(5) .section-title::before { content: "🥪 "; }
     .section:nth-child(6) .section-title::before { content: "🍕 "; }
+
+    /* PRINT STYLES: make it A4, clean, and dark text */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0;
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body::before {
+        content: none !important;
+      }
+
+      .menu-wrapper {
+        box-shadow: none;
+        border-radius: 0;
+        border: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      header {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000;
+      }
+
+      header::before,
+      header::after {
+        content: none !important;
+      }
+
+      .brand-main {
+        text-shadow: none;
+        color: #000000;
+      }
+
+      .brand-sub {
+        color: #000000;
+      }
+
+      .since-pill {
+        border-color: #000000;
+        color: #000000;
+        background: #ffffff;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+      }
+
+      .section {
+        background: #ffffff !important;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        padding: 12px;
+      }
+
+      .section:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .section-header {
+        border-bottom: 1px solid #000000;
+      }
+
+      .section-title {
+        color: #000000;
+      }
+
+      .section-title::before {
+        content: "" !important; /* remove emojis in print */
+      }
+
+      .section-tag {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      .item-line {
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        color: #000000;
+      }
+
+      .item-name span {
+        color: #000000;
+      }
+
+      .item-price {
+        color: #000000;
+      }
+
+      .item-line.top-seller {
+        border: 1px solid #000000;
+        background: #f3f4f6;
+      }
+
+      .top-seller-badge {
+        background: #000000;
+        color: #ffffff;
+        border-color: #000000;
+      }
+
+      .pill-note {
+        background: #000000;
+        color: #ffffff;
+        border-color: #000000;
+      }
+
+      footer {
+        background: #ffffff;
+        color: #000000;
+        border-top: 1px solid #000000;
+      }
+    }
   </style>
 </head>
 <body>
