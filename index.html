@@ -148,53 +148,6 @@ body{
   font-weight:800;
   letter-spacing:.14em;
 }
-@media print {
-
-  /* Force light mode for printing */
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-  }
-
-  body.dark {
-    --bg: #ffffff;
-    --card: #ffffff;
-    --text: #000000;
-    --price: #000000;
-    --border: #cccccc;
-    --accent: #000000;
-  }
-
-  .item {
-    background: #ffffff !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-    border: 1px solid #cccccc !important;
-  }
-
-  .item.top {
-    background: #f3f4f6 !important;
-    border-left: 3px solid #000000 !important;
-  }
-
-  .price {
-    color: #000000 !important;
-  }
-
-  .menu-header {
-    border-bottom: 1px solid #000000;
-  }
-
-  .tag,
-  .subtag {
-    background: #000000 !important;
-    color: #ffffff !important;
-  }
-
-  /* Veg / Non-veg dots stay visible */
-  .item.veg::before { background: #16a34a !important; }
-  .item.nonveg::before { background: #dc2626 !important; }
-}
 
 
 /* PRINT SAFE */
